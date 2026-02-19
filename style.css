@@ -1,0 +1,219 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333;
+    --control-bg: rgba(255, 255, 255, 0.75);
+    --primary-color: #007bff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Grid Container */
+#grid-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    /* Grid template columns and rows will be set by JS */
+    transition: background-color 0.3s ease;
+}
+
+.grid-cell {
+    width: 100%;
+    height: 100%;
+    /* User requested visible grid borders */
+    border: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+/* Controls Toggle Button */
+#controls-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    /* Moved to left */
+    background: var(--control-bg);
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    font-size: 1.5rem;
+    user-select: none;
+    transition: transform 0.2s, opacity 0.3s;
+    opacity: 1;
+}
+
+#controls-toggle.faded {
+    opacity: 0.3;
+    background: transparent;
+    box-shadow: none;
+}
+
+#controls-toggle.faded:hover {
+    opacity: 1;
+    background: var(--control-bg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#controls-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Control Panel */
+#controls {
+    position: fixed;
+    top: 20px;
+    left: 80px;
+    /* Moved to left */
+    width: 400px;
+    background: var(--control-bg);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transform: translateX(0);
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+#controls.hidden {
+    transform: translateX(-120%);
+    /* Slide out to left */
+    opacity: 0;
+    pointer-events: none;
+}
+
+#controls h2 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.control-group {
+    margin-bottom: 20px;
+}
+
+.control-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Color Presets */
+.color-presets {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.color-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.color-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.color-btn.active {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+input[type="color"] {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+    background: none;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+#hide-controls-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+#hide-controls-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Hidden Cursor */
+.hidden-cursor {
+    cursor: none;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.action-buttons button {
+    flex: 1;
+    padding: 8px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+    color: var(--text-color);
+}
+
+.action-buttons button:hover {
+    background-color: #e0e0e0;
+}
+
+
+
+/* Responsive */
+@media (max-width: 480px) {
+    #controls {
+        width: 90%;
+        left: 5%;
+        top: 60px;
+        /* Below toggle button */
+    }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLEAN YOUR SCREEN</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="grid-container"></div>
+
+    <div id="controls-toggle" title="Toggle Controls">⚙️</div>
+
+    <div id="controls" class="visible">
+        <h2>Grid Settings</h2>
+
+        <div class="control-group">
+            <label for="rows">Rows: <span id="rows-val">3</span></label>
+            <input type="range" id="rows" min="1" max="20" value="3">
+        </div>
+
+        <div class="control-group">
+            <label for="cols">Columns: <span id="cols-val">3</span></label>
+            <input type="range" id="cols" min="1" max="20" value="3">
+        </div>
+
+        <div class="control-group">
+            <label>Primary Color</label>
+            <div class="color-presets">
+                <button class="color-btn" data-color="#ffffff"
+                    style="background-color: #ffffff; border: 1px solid #ccc;" title="White"></button>
+                <button class="color-btn" data-color="#fdf5e6" style="background-color: #fdf5e6;"
+                    title="Warm White"></button>
+                <button class="color-btn" data-color="#ff0000" style="background-color: #ff0000;" title="Red"></button>
+                <button class="color-btn" data-color="#00ff00" style="background-color: #00ff00;"
+                    title="Green"></button>
+                <button class="color-btn" data-color="#0000ff" style="background-color: #0000ff;" title="Blue"></button>
+                <button class="color-btn" data-color="#000000" style="background-color: #000000;"
+                    title="Black"></button>
+                🖌️<input type="color" id="primary-color-picker" value="#ffffff" title="Custom Color">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>
+                <input type="checkbox" id="checkerboard"> Checkerboard Pattern
+            </label>
+        </div>
+
+        <div class="control-group" id="secondary-color-group" style="display: none;">
+            <label>Secondary Color</label>
+            <div class="color-presets">
+                <button class="color-btn secondary" data-color="#ffffff"
+                    style="background-color: #ffffff; border: 1px solid #ccc;" title="White"></button>
+                <button class="color-btn secondary" data-color="#fdf5e6" style="background-color: #fdf5e6;"
+                    title="Warm White"></button>
+                <button class="color-btn secondary" data-color="#ff0000" style="background-color: #ff0000;"
+                    title="Red"></button>
+                <button class="color-btn secondary" data-color="#00ff00" style="background-color: #00ff00;"
+                    title="Green"></button>
+                <button class="color-btn secondary" data-color="#0000ff" style="background-color: #0000ff;"
+                    title="Blue"></button>
+                <button class="color-btn secondary" data-color="#000000" style="background-color: #000000;"
+                    title="Black"></button>
+                🖌️<input type="color" id="secondary-color-picker" value="#000000" title="Custom Color">
+            </div>
+        </div>
+
+        <div class="control-group action-buttons">
+            <button id="fullscreen-btn" title="Toggle Full Screen (F)">⛶ Full Screen</button>
+        </div>
+
+        <button id="hide-controls-btn">Hide Controls</button>
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
